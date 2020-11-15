@@ -1,0 +1,10 @@
+<h1>Timeslot Details</h1>
+<p>Client: <%= link_to @timeslot.client_name, client_path(@timeslot.client) %></p>
+<p>Barber: <%= link_to @timeslot.barber_name, barber_path(@timeslot.barber) %></p>
+<p>Address: <%= @timeslot.address %></p>
+<p>Start Time: <%= @timeslot.start_time.strftime('%b %e, %l:%M %p') %></p>
+<p>End Time: <%= @timeslot.end_time.strftime('%b %e, %l:%M %p') %></p>
+<%= link_to "Edit Timeslot", edit_timeslot_path(@timeslot) %>
+<%= form_tag(timeslot_path(@timeslot), method: :delete, style: 'display: inline-block;') do %>
+  <%= submit_tag "Delete Timeslot" %>
+<% end %>
