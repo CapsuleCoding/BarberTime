@@ -1,0 +1,8 @@
+<h1><%= @client.name %></h1>
+<p><%= link_to "Book Timeslot for #{@client.name} ", new_client_timeslot_path(@client) %></p>
+<p><%= link_to "#{@client.name}'s Timeslots", client_timeslots_path(@client) %></p>
+<p><%= link_to  "Edit Client", edit_client_path(@client) %>
+<%= form_tag(client_path(@client), method: :delete) do%>
+<%= submit_tag "Delete Client" %>
+<% end %>
+</p>
