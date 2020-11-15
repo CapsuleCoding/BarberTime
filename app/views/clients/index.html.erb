@@ -1,0 +1,5 @@
+<h1>clients List</h1>
+<button><%= link_to 'Add client', new_client_path %></button>
+<% @clients.each do |client| %>
+  <p><%= link_to client.name, client_path(client) %></p>
+<% end %>

@@ -1,0 +1,6 @@
+<h1><%= @barber.name %></h1>
+<p><%= link_to  "Book with #{@barber.name}", new_barber_timeslot_path(@barber) %></p>
+<p><%= link_to  "#{@barber.name}'s Timeslots", barber_timeslots_path(@barber) %></p>
+<%= form_tag(barber_path(@barber), method: :delete, style: 'display: inline-block;') do %>
+  <%= submit_tag "Delete Barber" %>
+<% end %>

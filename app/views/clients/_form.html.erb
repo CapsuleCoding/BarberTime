@@ -1,0 +1,15 @@
+
+ <%= show_errors_for(client) %> 
+
+
+<%= form_for client do |f| %>
+  <p>
+    <%= f.label :name, "Add your Client's name" %><br/>
+    <%= f.text_field :name %>
+  <br>
+    <%= f.label :hair_type, "Add your Client's HairType" %><br/>
+    <%= f.text_field :hair_type %>
+  </p>
+  
+  <%= f.submit %>
+<% end %>
