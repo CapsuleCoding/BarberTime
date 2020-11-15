@@ -1,0 +1,40 @@
+
+ <%= show_errors_for(timeslot) %> 
+
+<%= form_for timeslot do |f| %>
+  <p>
+    <% if timeslot.client_id %>
+      <%= f.label :client_id, "Client" %>
+      <%= f.hidden_field :client_id %>
+      <%= timeslot.client.name %>
+    <% else %>
+    
+      <%= f.label :client_id, "Client" %>
+      <%= f.collection_select :client_id, current_user.clients, :id, :name %>
+    <% end %>
+  </p>
+  <p>
+  <% if timeslot.barber_id %>
+    <%= f.label :barber_id, "Barber" %>
+    <%= f.hidden_field :barber_id %>
+    <%= timeslot.barber.name %>
+  <% else %>
+  
+    <%= f.label :barber_id, "Barber" %>
+    <%= f.collection_select :barber_id, Barber.all, :id, :name %>
+  <% end %>
+  </p>
+  <p>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :start_time %>
+    <%= f.datetime_field :start_time %>
+  </p>
+  <p>
+    <%= f.label :end_time %>
+    <%= f.datetime_field :end_time %>
+  </p>
+  <%= f.submit %>
+<% end %>
